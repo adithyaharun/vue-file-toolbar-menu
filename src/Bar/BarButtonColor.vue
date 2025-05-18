@@ -33,7 +33,9 @@ export default {
   methods: {
     mousedown_handler (e) {
       // prevent loosing current text selection, unless the user clicks on an <input> of the color box
-      if(e.target.tagName.toLowerCase() != 'input') e.preventDefault();
+      if (e.target.tagName.toLowerCase() !== 'input' && e.target.getAttribute('contenteditable') !== 'true') {
+        e.preventDefault();
+      }
     }
   },
 
